@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abrar Hayat Nadim · RPA Architect</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter clean modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f7fb;
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    /* header / summary section */
+    .top-card {
+      background: linear-gradient(145deg, #0f2b4b, #1a3b5c);
+      color: white;
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+    }
+
+    .name-title h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.5rem 0 1.8rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .contact-item i {
+      font-size: 1.2rem;
+      width: 1.5rem;
+      color: #9ab9e0;
+    }
+
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255,255,255,0.4);
+    }
+
+    .contact-item a:hover {
+      border-bottom: 1px solid white;
+    }
+
+    .summary-text {
+      font-size: 1.08rem;
+      max-width: 900px;
+      background: rgba(255,255,255,0.07);
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 0.5rem;
+    }
+
+    /* main two column layout */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 0;
+      background: #fff;
+    }
+
+    .left-panel {
+      padding: 2.2rem 2rem 2.5rem 2.5rem;
+      border-right: 1px solid #e9eef2;
+    }
+
+    .right-panel {
+      padding: 2.2rem 2rem 2.5rem 2rem;
+      background: #fafdff;
+    }
+
+    /* section headings */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+      margin: 1.8rem 0 1.2rem 0;
+      color: #0b2a41;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-head i {
+      color: #2b6c9e;
+      font-size: 1.4rem;
+    }
+
+    .job-entry, .project-entry, .edu-entry {
+      margin-bottom: 1.8rem;
+    }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.3rem;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0b2a41;
+    }
+
+    .company {
+      font-weight: 600;
+      color: #2d577c;
+    }
+
+    .date-loc {
+      font-size: 0.9rem;
+      color: #5f6c80;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .date-loc i {
+      margin-right: 3px;
+      color: #6f8fae;
+    }
+
+    .desc-list {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .desc-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.98rem;
+    }
+
+    .desc-list li i {
+      color: #1f6eaf;
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+      min-width: 1.1rem;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-title span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #566b82;
+    }
+
+    .project-desc {
+      font-size: 0.96rem;
+      margin-left: 1.8rem;
+      margin-bottom: 1rem;
+      color: #2d3c51;
+    }
+
+    /* skill chips */
+    .skill-block {
+      margin-bottom: 1.8rem;
+    }
+
+    .skill-cat {
+      font-weight: 700;
+      color: #153e60;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      border-left: 4px solid #326a9b;
+      padding-left: 0.8rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1f4a76;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .right-icon-list {
+      margin-top: 0.5rem;
+    }
+
+    .right-icon-list .item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.98rem;
+    }
+
+    .badge-percent {
+      background: #deedff;
+      color: #0059b3;
+      font-weight: 600;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      margin-left: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .education-line {
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dbe1e8;
+      margin: 1rem 0;
+    }
+
+    /* github pages / vercel hint */
+    .deploy-note {
+      background: #e9eff7;
+      padding: 0.8rem 2rem;
+      font-size: 0.95rem;
+      color: #234b74;
+      text-align: center;
+      border-top: 1px solid #cbdbe9;
+    }
+
+    .deploy-note i {
+      color: #222;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    @media (max-width: 750px) {
+      .main-content { grid-template-columns: 1fr; }
+      .left-panel { border-right: 0; }
+      .top-card { padding: 1.8rem; }
+      .name-title h1 { font-size: 2.2rem; }
+      .contact-bar { gap: 1rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- top header with summary -->
+  <div class="top-card">
+    <div class="name-title">
+      <h1>Abrar Hayat Nadim</h1>
+    </div>
+    <div class="contact-bar">
+      <div class="contact-item"><i class="fas fa-phone-alt"></i> +60143275794</div>
+      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:abramadim247@gmail.com">abramadim247@gmail.com</a></div>
+      <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Palm Spring, Kota Damansara, 47810, Malaysia</div>
+      <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="#">LinkedIn</a></div>
+    </div>
+    <div class="summary-text">
+      <i class="fas fa-bolt" style="margin-right: 0.5rem; color:#ffd966;"></i> Results-driven Senior RPA Developer and Automation Architect with 7+ years of experience designing, developing, and deploying enterprise-grade automation solutions. Expert in UiPath, Power Automate, Power Query, VBA, JavaScript automation, and ERP integrations including Microsoft Dynamics 365 and Oracle ERP. Proven success in Finance, Retail, Healthcare, Insurance, Manufacturing, and IT operations. Strong background in Business Analysis, Solution Architecture, Process Optimization, and Proof-of-Concept delivery.
+    </div>
+  </div>
+
+  <!-- main two columns -->
+  <div class="main-content">
+    <!-- LEFT COLUMN: experience & projects -->
+    <div class="left-panel">
+      
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <div class="section-head"><i class="fas fa-briefcase"></i> Professional Experience</div>
+      
+      <div class="job-entry">
+        <div class="job-header">
+          <span class="job-title">Senior RPA Developer</span>
+          <span class="date-loc"><i class="fas fa-calendar"></i> Sep'23 – Present <span style="margin:0 0.3rem">|</span> <i class="fas fa-map-pin"></i> Kuala Lumpur</span>
+        </div>
+        <div class="company">Reliable Business Technologies Sdn Bhd</div>
+        <ul class="desc-list">
+          <li><i class="fas fa-circle"></i> <strong>Finance Automation:</strong> Automated Order-to-Cash & B2B billing; integrated UiPath with Dynamics 365 for invoice extraction, payment execution & GL entries. Built bots for open statements, approvals, petty cash & fixed assets.</li>
+          <li><i class="fas fa-circle"></i> <strong>Merchandising:</strong> Automated competitor price fetching for price match; streamlined PO creation & voucher tracking.</li>
+          <li><i class="fas fa-circle"></i> <strong>HR & IT:</strong> Bots for leave matching & onboarding; internal ticketing, ERP error trackers & audit workflows.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <span class="job-title">Senior RPA Developer & Business Analyst</span>
+          <span class="date-loc"><i class="fas fa-calendar"></i> Oct'20 – Aug'23 <span style="margin:0 0.3rem">|</span> <i class="fas fa-map-pin"></i> Dhaka</span>
+        </div>
+        <div class="company">Technometrics</div>
+        <ul class="desc-list">
+          <li><i class="fas fa-circle"></i> Implemented automated bot for Mutual Trust Bank IT operation (EOD/BOD).</li>
+          <li><i class="fas fa-circle"></i> <strong>Healthcare:</strong> automated patient invoice extraction into PACS machines.</li>
+          <li><i class="fas fa-circle"></i> <strong>Insurance:</strong> Led account reconciliation automation for claims & premium audits.</li>
+          <li><i class="fas fa-circle"></i> <strong>Garments (RMG):</strong> full-scale ERP invoice/order automation; liaison & requirements translation.</li>
+          <li><i class="fas fa-circle"></i> Developed ELK/Kibana dashboard + IBM i2 link analysis from scraped data.</li>
+        </ul>
+      </div>
+
+      <div class="job-entry">
+        <div class="job-header">
+          <span class="job-title">Web Developer</span>
+          <span class="date-loc"><i class="fas fa-calendar"></i> Apr'18 – Oct'20 <span style="margin:0 0.3rem">|</span> <i class="fas fa-map-pin"></i> Dhaka</span>
+        </div>
+        <div class="company">Ranx (Startup)</div>
+        <ul class="desc-list">
+          <li><i class="fas fa-circle"></i> Built dynamic websites & dashboards using PHP, JavaScript, SQL.</li>
+          <li><i class="fas fa-circle"></i> Scraper Bot from public sources (PHP XPath, Selenium, Python) deployed as worker bots on multiple VMs.</li>
+        </ul>
+      </div>
+
+      <!-- KEY PROJECTS (selected compact) -->
+      <div class="section-head"><i class="fas fa-star"></i> Key Projects</div>
+
+      <div class="project-entry">
+        <div class="project-title">Finance Order-to-Cash Automation <span>Retail & Banking · The food Purveyor Sdn Bhd</span></div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> End-to-end reconciliation (Maybank, Hong Leong, POS, card processors, ERP) using UiPath, SQL, Excel, PDF Extractor & D365. Reduced time from hours to minutes.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">End-to-End Invoice Automation <span>Finance · 64k+ invoices/month</span></div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> Extracted, validated, processed trade/non-trade invoices via UiPath + D365. <span class="badge-percent">95% manual work reduction</span></div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">Purchase Order & Approval Process <span>Merchandising & Finance</span></div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> SharePoint → D365 PO automation with real‑time inventory; reduced overstock 30‑40% ; approval cycle cut <span class="badge-percent">60‑70%</span> via Power Automate & UiPath.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">CapEx/Asset Approval Bot</div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> Multi‑level approval workflow, validation & logging — 50% faster cycle, improved audit compliance.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">Internal Audit & Compliance Portal</div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> UiPath + Express.js/Node.js/MySQL + REST APIs for 55 outlets; automated audit remediation & action plans.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">Bank End-of-Day (EOD) & Beginning-of-Day (BOD) Automation</div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> Across all branches: eliminated late manual work, <span class="badge-percent">80%+ time reduction</span>.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">Insurance Premium Payment Reconciliation</div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> Automated reconciliation, <span class="badge-percent">70% manual effort cut</span>.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">CRM Voucher Distribution & Financial Reconciliation</div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> Voucher creation, usage tracking + reconciliation — reduced manual workload <span class="badge-percent">60%</span>.</div>
+      </div>
+      <div class="project-entry">
+        <div class="project-title">IT Ticketing & Workflow Automation</div>
+        <div class="project-desc"><i class="fas fa-arrow-right" style="color:#1669b2;"></i> Power Automate, Outlook, Teams, web portal — response time <span class="badge-percent">-50%</span>.</div>
+      </div>
+    </div> <!-- end left panel -->
+
+    <!-- RIGHT PANEL: skills, education, extra -->
+    <div class="right-panel">
+      <div class="section-head" style="margin-top: 0.2rem;"><i class="fas fa-cog"></i> Skills</div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Automation Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">UiPath</span><span class="skill-tag">Orchestrator</span><span class="skill-tag">Document Understanding</span>
+          <span class="skill-tag">Power Automate</span><span class="skill-tag">Excel Macros</span><span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">OCR</span><span class="skill-tag">Power Query</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Programming & DB</div>
+        <div class="skill-tags">
+          <span class="skill-tag">VB.NET</span><span class="skill-tag">C#</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Python</span><span class="skill-tag">PHP</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">ERP / Domains</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Dynamics 365</span><span class="skill-tag">Oracle ERP</span><span class="skill-tag">SAP</span>
+          <span class="skill-tag">Custom ERP</span><span class="skill-tag">Finance</span><span class="skill-tag">Healthcare</span>
+          <span class="skill-tag">Insurance</span><span class="skill-tag">RMG</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Data & Reporting</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span><span class="skill-tag">MSSQL</span><span class="skill-tag">Power BI</span><span class="skill-tag">Kibana</span>
+          <span class="skill-tag">ELK</span><span class="skill-tag">IBM i2</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-cat">Project & Docs</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile</span><span class="skill-tag">JIRA</span><span class="skill-tag">PDD/SDD</span>
+          <span class="skill-tag">Requirements Analysis</span>
+        </div>
+      </div>
+
+      <!-- Additional highlights: languages / education -->
+      <div style="margin-top: 2rem;">
+        <div class="section-head" style="margin-top: 0;"><i class="fas fa-language"></i> Languages</div>
+        <div class="right-icon-list">
+          <div class="item"><i class="fas fa-comment"></i> English <span style="margin-left:auto;">Fluent</span></div>
+          <div class="item"><i class="fas fa-comment"></i> Bengali <span style="margin-left:auto;">Native</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <div class="section-head" style="margin-top: 0;"><i class="fas fa-graduation-cap"></i> Education</div>
+        <div class="education-line">Bachelor's Degree in Computer Science</div>
+        <div style="color: #2d4b6e;">University of Chittagong · GPA: 3.24</div>
+      </div>
+
+      <!-- tiny extra: certifications / interests (optional) -->
+      <hr>
+      <div style="font-size:0.95rem; color:#234f73;"><i class="fas fa-check-circle" style="color:#256fb3;"></i> Certified UiPath RPA Developer · Power Automate Advanced</div>
+      <div style="font-size:0.95rem; margin-top: 0.5rem;"><i class="fas fa-map-pin"></i> Location: Palm Spring, Kota Damansara, 47810 MY</div>
+    </div> <!-- end right panel -->
+  </div> <!-- end main content -->
+
+  <!-- deploy instructions (visible on site, acts as guide) -->
+  <div class="deploy-note">
+    <i class="fas fa-github"></i> Ready for GitHub Pages or Vercel. 
+    Copy this HTML as <strong>index.html</strong>, push to repo <strong>yourusername.github.io</strong> or deploy via Vercel. 
+    Commands: <code style="background:#dde9f5;">git init ; git add index.html ; git commit -m "resume site" ; git branch -M main ; git remote add origin https://github.com/yourusername/yourusername.github.io.git ; git push -u origin main</code>
+  </div>
+</div> <!-- end container -->
+</body>
+</html>
